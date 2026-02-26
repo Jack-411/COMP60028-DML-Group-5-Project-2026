@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The CrossSafe Initiative</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="normal">
+
+<nav>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#problem">The Problem</a></li>
+        <li><a href="#solution">Our Solution</a></li>
+        <li><a href="#team">The Team</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button id="toggleMode">Accessibility Mode</button>
+</nav>
+
+<!-- ================= HOME ================= -->
+
+<section id="home">
+    <div class="home-content">
+        <h1>The CrossSafe Initiative</h1>
+        <h2>A real-time traffic signal detection system empowering blind and low-vision pedestrians</h2>
+        <p>
+            Around 3.5% of the world's population lives with moderate to severe vision impairment — 
+            a condition that can significantly affect safe road crossing.
+        </p>
+        <button class="audio-btn" onclick="playAudio('homeAudio')">🔊 Listen</button>
+        <audio id="homeAudio" src="./Assets/home.m4a"></audio>
+    </div>
+</section>
+
+<!-- ================= PROBLEM ================= -->
+
+<section id="problem">
+
+    <!-- BLOCK 1 -->
+    <div class="problem-main">
+
+        <h2>The Problem</h2>
+
+        <div class="problem-row">
+            <img src="./Assets/UK Crossing.jpg" alt="Problem Image">
+
+            <div class="problem-text">
+                <p>
+                    Every visually impaired pedestrian deserves to feel safe and confident when crossing roads, regardless of location or surrounding conditions.
+                </p>
+                <p>
+                    Accessibility tools, such as tactile paving, audible signals, and safe route indicators, can help guide pedestrians and reduce uncertainty at crossings.
+                </p>
+            </div>
+            <button class="audio-btn" onclick="playAudio('problemAudio')">🔊 Listen</button>
+            <audio id="problemAudio" src="./Assets/problem.m4a"></audio>
+        </div>
+
+    </div>
+
+    <!-- BLOCK 2 -->
+    <div class="problem-however">
+        <div class="however-container">
+            <div class="left-col">
+                <h2>However,</h2>
+
+                <p class="left-text">
+                    Many crossings still lack the necessary accessibility infrastructure, and tools are not universally available, leaving pedestrians to navigate uncertain or complex environments.
+                </p>
+            </div>
+
+            <img src="./Assets/Signal Lights/Signal Lights.png" class="however-img" alt="However Image">
+
+            <p class="right-text">
+                Unexpected traffic patterns, hesitation from drivers, and inconsistencies at intersections can all delay crossings and increase safety risks for visually impaired individuals.
+            </p>
+        </div>
+        <button class="audio-btn" onclick="playAudio('howeverAudio')">🔊 Listen</button>
+        <audio id="howeverAudio" src="./Assets/however.m4a"></audio>
+    </div>
+
+</section>
+
+<!-- ================= SOLUTION ================= -->
+<section id="solution">
+
+    <!-- BLOCK 1 : Our Solution -->
+    <div class="solution-main-block">
+
+        <div class="solution-main">
+            <h2>Our Solution</h2>
+            <p>
+                Our ML model observes traffic signal states through an in-built camera, providing audio and haptic feedback to inform the user whether it is safe to cross.
+            </p>
+            <p>
+                The algorithm can differentiate between vehicle and pedestrian traffic lights to ensure adaptable functionality regardless of the crossing.
+            </p>
+            <button class="audio-btn" onclick="playAudio('solutionAudio')">🔊 Listen</button>
+            <audio id="solutionAudio" src="./Assets/solution.m4a"></audio>
+        </div>
+
+        <img class="solution-main-img"
+             src="./Assets/Machine Learning Graphics.jpg"
+             alt="Solution Image">
+
+    </div>
+
+    <!-- BLOCK 2 : How it Works -->
+    <div class="solution-how">
+
+        <div class="solution-how-container">
+
+            <h2>How it Works</h2>
+
+            <img class="solution-flow"
+                 src="./Assets/flowchart.png"
+                 alt="ML Flowchart">
+
+            <ul class="solution-list">
+                <li>Images are captured using an in-built camera system.</li>
+                <li>Object identification recognises the most relevant pedestrian traffic light.</li>
+                <li>Colour recognition detects red and green signal states.</li>
+                <li>The system determines whether it is safe to proceed in real time.</li>
+                <li>Recommended actions are communicated through audio or haptic feedback.</li>
+            </ul>
+
+        </div>
+        <button class="audio-btn" onclick="playAudio('howitworksAudio')">🔊 Listen</button>
+        <audio id="howitworksAudio" src="./Assets/howitworks.m4a"></audio>
+    </div>
+
+</section>
+
+<!-- ================= TEAM ================= -->
+
+<section id="team">
+    <h2>The Team</h2>
+    <div class="team-grid">
+        <div class="card"><strong>HyeMin Oh</strong>Department of Earth Science & Engineering</div>
+        <div class="card"><strong>Isaac Ip</strong>Department of Mechanical Engineering</div>
+        <div class="card"><strong>Jack Chen</strong>Department of Materials</div>
+        <div class="card"><strong>Tejas Mungale</strong>Department of Computing</div>
+        <div class="card"><strong>Wei Xu</strong>Department of Electrical & Electronic Engineering</div>
+        <div class="card"><strong>Xiang Gu</strong>Department of Bioengineering</div>
+    </div>
+    <button class="audio-btn" onclick="playAudio('teamAudio')">🔊 Listen</button>
+    <audio id="teamAudio" src="./Assets/team.m4a"></audio>
+</section>
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact">
+    <div class="contact-left">
+        <h2>Contact Us</h2>
+        <h3>
+            For more information or if you would like to share your ideas, please send us a message.
+        </h3>
+        <p>
+            Exhibition Road<br>
+            South Kensington<br>
+            London, SW7 2AZ
+        </p>
+        <button class="audio-btn" onclick="playAudio('contactAudio')">🔊 Listen</button>
+        <audio id="contactAudio" src="./Assets/contact.m4a"></audio>
+    </div>
+
+    <div class="contact-right">
+        <form>
+            <input type="text" placeholder="First Name">
+            <input type="text" placeholder="Last Name">
+            <input type="email" placeholder="Email">
+            <textarea id="messageBox"></textarea>
+        </form>
+    </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

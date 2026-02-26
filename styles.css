@@ -1,0 +1,558 @@
+:root{
+    --primary-blue:#0b2e6b;
+    --immersive-bg:#fff8cc;
+}
+
+/* ================= GLOBAL ================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+    scroll-snap-type: y mandatory;
+}
+
+body{
+    overflow-x:hidden;
+}
+
+img{
+    max-width:100%;
+    height:auto;
+    display:block;
+}
+
+section{
+    height:100vh;
+    scroll-snap-align:start;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:60px;
+}
+
+body.normal{
+    scroll-snap-type:y mandatory;
+}
+
+/* ================= NAV ================= */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;                  /* full width for all modes */
+    background: white;
+    display: flex;
+    justify-content: space-between; /* links left, button right */
+    align-items: center;           /* vertically centre all content */
+    padding: 15px 40px;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--primary-blue);
+    font-weight: bold;
+}
+
+#toggleMode {
+    display: inline-flex;          /* ensures proper alignment */
+    align-items: center;           /* vertically align text inside button */
+    justify-content: center;
+    cursor: pointer;
+    border: 2px solid var(--primary-blue);
+    padding: 5px 12px;
+    border-radius: 20px;
+    background: white;
+    color: var(--primary-blue);
+    height: 100%;                  /* match nav height */
+}
+
+/* ================= HOME ================= */
+
+#home{
+    position:relative;
+    color:white;
+}
+
+#home::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:url("./Assets/bg.jpg") center/cover no-repeat;
+    z-index:-2;
+}
+
+#home::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    backdrop-filter:blur(6px);
+    z-index:-1;
+}
+
+.home-content{
+    width:65%;
+    max-width:800px;
+    background:rgba(0,0,0,0.55);
+    padding:60px;
+    border-radius:50%;
+    text-align:center;
+}
+
+.home-content h1{
+    font-size:3rem;
+    color:var(--primary-blue);
+    font-weight:bold;
+}
+
+.home-content h2{
+    margin-top:20px;
+    font-size:1.3rem;
+}
+
+.home-content p{
+    margin-top:25px;
+    font-size:1rem;
+    line-height:1.5;
+}
+
+/* ================= PROBLEM SECTION ================= */
+
+#problem{
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+    height:auto;
+    padding:140px 0;
+    gap:120px;
+}
+
+/* ---------- BLOCK 1 ---------- */
+
+.problem-main{
+    width:100%;
+    max-width:1100px;
+    padding:0 60px;
+}
+
+.problem-main h2 {
+    font-size: 3rem;           /* bigger */
+    color: var(--primary-blue);
+    text-align: center;         /* center horizontally */
+    margin-bottom: 60px;        /* space below title */
+}
+
+.problem-row{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:50px;
+}
+
+.problem-row img{
+    width:40%;
+    max-width:420px;
+    object-fit:contain;
+}
+
+.problem-text{
+    width:50%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:30px;
+    font-size:1.05rem;
+}
+
+/* ---------- BLOCK 2 (HOWEVER) ---------- */
+.problem-however{
+    background:var(--primary-blue);
+    color:white;
+    padding:6vh 0;
+    width:100%;
+}
+
+/* 2×2 GRID, CENTERED */
+.problem-however .however-container{
+    width:70%;
+    max-width:1000px;
+    margin:0 auto;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;   /* left | right */
+    grid-template-rows:auto auto;    /* row 1 | row 2 */
+    gap:3vh 3vw;
+}
+
+/* LEFT COLUMN — ROW 1 (title + left text stacked) */
+.left-col{
+    grid-column:1;
+    grid-row:1;
+
+    display:flex;
+    flex-direction:column;
+    gap:1.5vh;
+}
+
+/* TITLE */
+.problem-however h2{
+    font-size:2.4rem;
+    margin:0;
+}
+
+/* LEFT TEXT */
+.left-text{
+    font-size:1.05rem;
+    line-height:1.6;
+}
+
+/* IMAGE — RIGHT COLUMN, ROW 1 */
+.however-img{
+    grid-column:2;
+    grid-row:1;
+    width:50%;
+    max-height:240px;
+    object-fit:contain;
+    justify-self:center;
+    align-self:start;
+}
+
+/* RIGHT TEXT — RIGHT COLUMN, ROW 2 */
+.right-text{
+    grid-column:2;
+    grid-row:2;
+    font-size:1.05rem;
+    line-height:1.6;
+}
+
+/* ================= SOLUTION SECTION ================= */
+
+#solution{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+    width:100%;
+    padding:10vh 0;
+    gap:10vh; /* vertical spacing between blocks */
+    height:auto;        /* auto height to fit content */
+}
+
+/* ---------- BLOCK 1 ---------- */
+
+.solution-main-block{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;   /* align top, not centre */
+    width:75%;
+    max-width:1100px;
+    gap:4vw;
+}
+
+.solution-main{
+    flex:1;
+    text-align:left;
+}
+
+.solution-main h2{
+    font-size:3rem;
+    color: var(--primary-blue);
+    margin-bottom:60px;
+}
+
+.solution-main p{
+    line-height:1.6;
+    margin-bottom:1.5vh;
+}
+
+.solution-main-img{
+    width:40%;
+    max-width:420px;
+    object-fit:contain;
+}
+
+/* ---------- BLOCK 2 ---------- */
+
+.solution-how{
+    width:100%;
+    background:var(--primary-blue);
+    color:white;
+    padding:6vh 0;
+    height:auto;          /* auto height for content */
+}
+
+.solution-how-container{
+    width:75%;
+    max-width:1100px;
+    margin:0 auto;
+    text-align:left;
+}
+
+.solution-how h2{
+    font-size:2.2rem;
+    margin-bottom:3vh;
+}
+
+.solution-flow{
+    width:100%;
+    max-width:850px;
+    display:block;
+    margin:0 auto 3vh auto;
+}
+
+.solution-list{
+    padding-left:1.2rem;
+    line-height:1.7;
+}
+
+.solution-list li{
+    margin-bottom:0.8rem;
+}
+
+/* ---------- AUDIO BUTTON ---------- */
+
+.audio-btn{
+    display:none;
+    margin-top:20px;
+}
+
+body.immersive .audio-btn{
+    display:block;
+}
+
+/* ================= TEAM ================= */
+
+#team{
+    flex-direction:column;
+    padding-top:120px;
+}
+
+#team h2 {
+    font-size: 3rem;           /* bigger */
+    color: var(--primary-blue);
+    text-align: center;         /* center horizontally */
+    margin-bottom: 60px;        /* space below title */
+}
+
+.team-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+    margin-top:40px;
+    width:100%;
+    max-width:900px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    text-align:center;
+}
+
+.card strong{
+    color:var(--primary-blue);
+    display:block;
+    margin-bottom:8px;
+}
+
+/* ================= CONTACT ================= */
+
+#contact{
+    display:flex;
+    gap:60px;
+    width:100%;
+    justify-content:center;
+    padding-top:120px;
+}
+
+.contact-left{
+    width:40%;
+    max-width:400px;
+    font-size:1.05rem;
+    line-height:1.6;
+}
+
+.contact-left h2{
+    font-size: 3rem;           /* bigger */
+    color: var(--primary-blue);
+    text-align: left;         /* center horizontally */
+    margin-bottom: 60px;        /* space below title */
+}
+
+.contact-right{
+    width:40%;
+    max-width:400px;
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+textarea{
+    height:150px;
+    resize:none;
+}
+
+/* ================= IMMERSIVE MODE ================= */
+
+body.immersive {
+    background: #fff;           /* plain white background */
+    scroll-snap-type: none;
+    overflow-x: hidden;
+    color: #000;                /* all text black */
+    font-size: 1.05rem;
+    line-height: 1.6;
+    text-align: center;         /* centre everything horizontally */
+}
+
+/* Sections auto-height and centred */
+body.immersive section {
+    height: auto;
+    display: block;
+    width: 50%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 120px 0;
+    text-align: center;
+}
+
+/* Remove all animations & transitions */
+body.immersive * {
+    animation: none !important;
+    transition: none !important;
+}
+
+/* Hide all images */
+body.immersive img {
+    display: none !important;
+}
+
+/* Audio buttons visible and centred */
+body.immersive .audio-btn {
+    display: inline-block;
+    margin: 1.5rem 0;
+}
+
+/* Remove card styling */
+body.immersive .card {
+    box-shadow: none;
+    background: none;
+    border: none;
+    text-align: center;
+}
+
+/* Headings centred and black */
+body.immersive h1,
+body.immersive h2 {
+    color: #000;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Paragraphs and lists */
+body.immersive p, 
+body.immersive li {
+    margin-bottom: 1rem;
+    color: #000;
+    text-align: center;
+}
+
+/* Lists styling */
+body.immersive ul, 
+body.immersive ol {
+    padding-left: 0;
+    margin-bottom: 1.5rem;
+    list-style-position: inside;
+}
+
+/* Flatten any flex/grid blocks */
+body.immersive .home-content,
+body.immersive .solution-main,
+body.immersive .problem-main,
+body.immersive .problem-however,
+body.immersive .solution-how,
+body.immersive .team-grid,
+body.immersive #contact,
+body.immersive .problem-row,
+body.immersive .solution-main-block,
+body.immersive .problem-however .however-container,
+body.immersive .solution-how-container {
+    display: block !important;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0;
+    gap: 0;
+}
+
+/* Remove any background colours in blocks */
+body.immersive .problem-however,
+body.immersive .solution-how,
+body.immersive .home-content {
+    background: none !important;
+    padding: 0;
+    border-radius: 0;
+}
+
+/* Title page specific: remove mask/background */
+body.immersive #home::before,
+body.immersive #home::after {
+    content: none !important;
+}
+
+/* Flatten problem block 1 so text is centred */
+body.immersive .problem-row {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+body.immersive .problem-text {
+    width: 100% !important;
+    text-align: center !important;
+}
+
+/* Flatten contact section */
+body.immersive #contact {
+    display: block !important;
+    width: 100%;
+    text-align: center;
+    padding: 0 0 120px 0;
+}
+
+body.immersive .contact-left,
+body.immersive .contact-right {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto;
+    text-align: center !important;
+}
+
+/* ===== NAVBAR AUTO HIDE ===== */
+
+nav{
+    transition: transform 0.3s ease;
+}
+
+/* hide when scrolling down */
+nav.nav-hidden{
+    transform: translateY(-100%);
+}
